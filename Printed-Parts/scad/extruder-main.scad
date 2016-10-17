@@ -1,3 +1,6 @@
+filament_difference = (2.85 - 1.75)/2;
+hob_difference=(7-6)/2;
+
 module extruder_body(){
 union(){
 difference(){
@@ -68,12 +71,13 @@ difference(){
 
 mirror([1,0,0]){
 //  Filament visualisation
-    %translate([-35/2,-50,15])rotate([-90,0,0])cylinder(r=1.75/2, h=100, $fn=20);
+    %translate([-35/2,-50,15])rotate([-90,0,0])cylinder(r=2.85/2, h=100, $fn=20);
 
 // Motor visualisation
-    translate([-42,-42,-1]) %cube([42,42,1]);
-    translate([-21,-21,0])%cylinder(r=2.5, h=20, $fn=30);
-    translate([-21,-21,8])%cylinder(r=4, h=13, $fn=30);
+    translate([-42 - filament_difference  - hob_difference,-42,-1]) %cube([42,42,1]);
+    translate([-21 - filament_difference  - hob_difference,-21,0])%cylinder(r=2.5, h=20, $fn=30);
+    translate([-21 - filament_difference  - hob_difference,-21,8])%cylinder(r=4.5, h=13, $fn=30);
+    translate([-21 - filament_difference - hob_difference,-21,8])#%cylinder(r=3.5, h=13, $fn=30);
 
 // MOTOR
 difference(){
@@ -90,7 +94,7 @@ difference(){
     translate([-21,-21,-2]) cylinder(r=11.5, h=33, $fn=200);
     
     //filament hole
-    translate([-35/2,-42,15])rotate([-90,0,0])cylinder(r=2.5/2, h=20, $fn=20);
+    translate([-35/2,-42,15])rotate([-90,0,0])cylinder(r=3.5/2, h=20, $fn=20);
     translate([-35/2,-42,15])rotate([-90,0,0])cylinder(r2=2.2/2,r1=3.6/2, h=1.5, $fn=20);
 }
 
@@ -108,19 +112,19 @@ translate([-35/2-4,-1,2]) cube([8,15,25]);
     // Filament ptfe guide cutout
 
         // PTFE secure ring slot
-        translate([-35/2,-3.99,15])rotate([-90,0,0]) cylinder(r=7.5/2, h=5, $fn=50);    // Bottom hole
-        translate([-35/2,-3.99,21])rotate([-90,0,0]) cylinder(r=7.5/2, h=5, $fn=50);    // Top hole     
-        translate([-35/2 - 7.5/2,-3.99,21])rotate([-90,0,0])cube([7.5,6,8]);            // Slot cut
-    
+//        translate([-35/2,-3.99,15])rotate([-90,0,0]) cylinder(r=7.5/2, h=5, $fn=50);    // Bottom hole
+//        translate([-35/2,-3.99,21])rotate([-90,0,0]) cylinder(r=7.5/2, h=5, $fn=50);    // Top hole     
+//        translate([-35/2 - 7.5/2,-3.99,21])rotate([-90,0,0])cube([7.5,6,8]);            // Slot cut
+//    
         // PTFE tube slot
-        translate([-35/2,-23,15])rotate([-90,0,0]) cylinder(r=4.3/2, h=25, $fn=50);     // Main hole
-        translate([-35/2,-9,15])rotate([-60,0,0]) rotate([0,0,10])cylinder(r=4.3/2, h=25, $fn=50); // Top hole
+        translate([-35/2,-23,15])rotate([-90,0,0]) cylinder(r=3.2/2, h=25, $fn=50);     // Main hole
+        //translate([-35/2,-9,15])rotate([-60,0,0]) rotate([0,0,10])cylinder(r=4.3/2, h=25, $fn=50); // Top hole
         // Slot cut
-        difference(){
-        translate([-35/2,-8,14])rotate([-60,0,0]) rotate([0,0,30])cylinder(r=4.85/2, h=25, $fn=6);
-        translate([-22,-20,5])cube([10,50,10]);
-        }
-        
+//        difference(){
+//        translate([-35/2,-8,14])rotate([-60,0,0]) rotate([0,0,30])cylinder(r=4.85/2, h=25, $fn=6);
+//        translate([-22,-20,5])cube([10,50,10]);
+//        }
+//        
        // drive pulley cutout
            translate([-21,-21,8])cylinder(r=4, h=13, $fn=80);
        // idler bearing cutout
@@ -269,7 +273,7 @@ difference(){
 
 
     // Motor mount holes
-translate([21,-21,0]){
+translate([21+filament_difference + hob_difference,-21,0]){
             // Top right
             translate([-15.5,-15.5,4]) cylinder(r=1.65, h=50, $fn=30);  // Screw hole
             translate([-15.5,-15.5,-1]) cylinder(r=3.1, h=4.5, $fn=30); // Head cut
@@ -329,7 +333,15 @@ module extruder_nozzle_cooling(){
     
     }
 
-       //extruder_body();
-       //extruder_mount_holes();
-       //extruder_cover();
+//module ext_body(){
+//    
+//    difference(){
+//       extruder_body();
+//       extruder_mount_holes();
+//    }
+//    
+//    }
+//    
+// ext_body();
+
 

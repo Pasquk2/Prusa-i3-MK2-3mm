@@ -1,4 +1,5 @@
-
+filament_difference = (2.85 - 1.75)/2;
+hob_difference=(7-6)/2;
 
 module part_body(){
     
@@ -54,7 +55,7 @@ module cut_away(){
     translate([0,52,0]) sphere(r=5, $fn=20);
     
     //bearing hole
-    translate([ 0, 20, 3 ]){
+    translate([ 0, 20, 3+filament_difference ]){
         rotate([0,90,0]){
             cylinder(r=8.5, h=7.5, $fn=200, center=true);
             %cylinder(r=8, h=7.5, $fn=200, center=true);
