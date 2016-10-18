@@ -244,11 +244,11 @@ translate([0,extbodyheight_difference,0])    translate([-35,0,0])cube([35,43,35]
      
     // Carriage mount right  
     translate([35/2-12,6.5,-0.01-extradius_difference]) cylinder(r=1.65, h=5+extradius_difference, $fn=30); // Bottom hole
-    translate([35/2-12,6.5,6.5+0.2-extradius_difference])cylinder(r=1.65, h=5+extradius_difference, $fn=30); // Middle hole
-    translate([35/2-12,6.5,12.5+0.2-extradius_difference])cylinder(r=1.65, h=14.3-0.2+2*extradius_difference, $fn=30); // Top hole
+    translate([35/2-12,6.5,6.5+0.2])cylinder(r=1.65, h=5, $fn=30); // Middle hole
+    translate([35/2-12,6.5,12.5+0.2-extradius_difference])cylinder(r=1.65, h=14.3-0.2+extradius_difference, $fn=30); // Top hole
 
 
-    translate([35/2-12,6.5,27])cylinder(r=3.1, h=5, $fn=30); // Head cut
+    translate([35/2-12,6.5,27])cylinder(r=3.1, h=5+extradius_difference, $fn=30); // Head cut
      translate([35/2-12-6.5,6.5-2.85,10])rotate([0,0,0]) cube([10,5.7,2.5]); // Nut Trap top
 //    translate([35/2-12,6.5,10])cylinder(r=3.3, h=2.5, $fn=6);
      
@@ -261,7 +261,7 @@ translate([0,extbodyheight_difference,0])    translate([-35,0,0])cube([35,43,35]
      
      
     // Carriage mount left
-    translate([35/2+12+11,6.5-2,6.2-extradius_difference])cylinder(r=1.7, h=20.8-0.2+2*extradius_difference, $fn=30);    // Screw hole
+    translate([35/2+12+11,6.5-2,6.2])cylinder(r=1.7, h=20.8-0.2, $fn=30);    // Screw hole
     translate([35/2+12+11,6.5-2,-0.01-extradius_difference])rotate([0,0,-15])cylinder(r=3.2, h=6+extradius_difference, $fn=6);  // Nut trap    
      translate([35/2+12+11,6.5-2,-0.01-extradius_difference])rotate([0,0,-15])cylinder(r2=3.2, r1=4, h=3+extradius_difference, $fn=6);  // Nut trap  
      translate([35/2+12+11,6.5-2,27])cylinder(r=3.1, h=5+extradius_difference, $fn=30); // Head cut
@@ -271,30 +271,30 @@ translate([0,extbodyheight_difference,0])    translate([5,61-5,20])cylinder(r=3/
      
     // 5015 print fan top left mount hole 
     translate([35/2+12,6.5,-0.01-extradius_difference])cylinder(r=1.65, h=35+extradius_difference, $fn=30); // Screw cut
-    translate([35/2+12,6.5,11-extradius_difference]) rotate([0,0,30])cylinder(r=3.2, h=17.01+2*extradius_difference, $fn=6); // Nut Trap
-    translate([35/2+12,6.5,14-extradius_difference]) rotate([0,0,30])cylinder(r=3.5, h=11.01+extradius_difference, $fn=6); // Nut easy entry cut
+    translate([35/2+12,6.5,11]) rotate([0,0,30])cylinder(r=3.2, h=17.01, $fn=6); // Nut Trap
+    translate([35/2+12,6.5,14]) rotate([0,0,30])cylinder(r=3.5, h=11.01, $fn=6); // Nut easy entry cut
 
     // 5015 print fan bottom right mount hole 
     translate([35/2+12-42.75,6.5+38.5,15])cylinder(r=1.65, h=20+extradius_difference, $fn=30); // Screw cut
-    translate([35/2+12-42.75,6.5+38.5,15]) cylinder(r=3.2, h=13.01+extradius_difference, $fn=6); // Nut Trap
+    translate([35/2+12-42.75,6.5+38.5,15]) cylinder(r=3.2, h=13.01, $fn=6); // Nut Trap
 
 
     // Motor mount holes
 translate([21+filament_difference + hob_difference,-21,0]){
             // Top right
-            translate([-15.5,-15.5,4-extradius_difference]) cylinder(r=1.65, h=50+extradius_difference, $fn=30);  // Screw hole
+            translate([-15.5,-15.5,4]) cylinder(r=1.65, h=50, $fn=30);  // Screw hole
             translate([-15.5,-15.5,-1-extradius_difference]) cylinder(r=3.1, h=4.5+extradius_difference, $fn=30); // Head cut
     
             // Bottom right
-            translate([-15.5,15.5,4-extradius_difference]) cylinder(r=1.65, h=50+extradius_difference, $fn=30);   // Screw hole
+            translate([-15.5,15.5,4]) cylinder(r=1.65, h=50, $fn=30);   // Screw hole
             translate([-15.5,15.5,-1-extradius_difference]) cylinder(r=3.1, h=4.5+extradius_difference, $fn=30);  // Head cut
     
             // Top left
-            translate([15.5,-15.5,4-extradius_difference]) cylinder(r=1.65, h=50+extradius_difference, $fn=30);   // Screw hole
+            translate([15.5,-15.5,4]) cylinder(r=1.65, h=50, $fn=30);   // Screw hole
             translate([15.5,-15.5,-1-extradius_difference]) cylinder(r=3.1, h=4.5+extradius_difference, $fn=30);  // Head cut
     
             // Bottom left
-            translate([15.5,15.5,4-extradius_difference]) cylinder(r=1.65, h=50+extradius_difference, $fn=30);    // Screw hole
+            translate([15.5,15.5,4]) cylinder(r=1.65, h=50, $fn=30);    // Screw hole
             translate([15.5,15.5,-1-extradius_difference]) cylinder(r=3.1, h=4.5+extradius_difference, $fn=30);   // Head cut
            
            }
@@ -350,7 +350,7 @@ module extruder_nozzle_cooling(){
 //    }
 //    
 // ext_body();
-//
+
 //module ext_cover(){
 //difference(){
 //extruder_cover();
