@@ -1,3 +1,5 @@
+extbodyheight_difference = 7;
+
 module fan_nozzle(){
     
 difference(){    
@@ -6,6 +8,9 @@ cube([32,10,17]); // Main cube
 translate([30,5,0])cylinder(r=5.8,h = 17, $fn=6);    
 translate([-3,0,-6]) cube([3,10,23]);
 //#translate([-2,5,0])cylinder(r=5.8,h = 17, $fn=6);        
+translate([1-1.2,10-1.5,0])cube([22.4,3+extbodyheight_difference,16.5+.5]);
+
+
 }
 // Mounting screw
 translate([30,5,-10])cylinder(r=3.2/2,h = 24.5-0.2, $fn=15); // Screw cut
@@ -15,7 +20,7 @@ translate([30,5,17-3.5])cylinder(r=3.1,h = 20, $fn=15); // head cut
 //#translate([-2,5,17-3.5])cylinder(r=3.1,h = 20, $fn=15); // head cut
 
 // Fan entry hole
-translate([1,10-1.5,-1])cube([20,3,16.5]);
+translate([1,10-1.5,-1])cube([20,5+extbodyheight_difference,16.5]);
 translate([1,10-1.5,-1-5])cube([18,3,16.5]);
     
 // Airway cutout
@@ -53,7 +58,7 @@ module fancy_corners(){
     translate([-6.5,-8,-5])rotate([0,0,45])cube([10,10,45]);
     translate([-7,-5,12])rotate([0,-45,0])cube([10,30,15]);
     
-    translate([-7,5,-10])rotate([0,0,45])cube([10,10,35]);
+    translate([-8,4,-10])rotate([0,0,45])cube([10,10,35]);
     
     }
 
